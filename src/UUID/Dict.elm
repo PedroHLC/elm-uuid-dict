@@ -418,6 +418,8 @@ moveRedRight dict =
             dict
 
 
+{-| Update the value of a dictionary for a specific key with a given function.
+-}
 update : UUID -> (Maybe v -> Maybe v) -> Dict v -> Dict v
 update targetKey alter dictionary =
     case alter (get targetKey dictionary) of
@@ -428,6 +430,8 @@ update targetKey alter dictionary =
             remove targetKey dictionary
 
 
+{-| Create a dictionary with one key-value pair.
+-}
 singleton : UUID -> v -> Dict v
 singleton key value =
     RBNode_elm_builtin Black key value RBEmpty_elm_builtin RBEmpty_elm_builtin
